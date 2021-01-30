@@ -9,9 +9,13 @@ const itemOptions = [
   { label: 'Meat', type: 'meat' },
 ];
 
-const buildControls = ({ ingredients, addControl, removeControl }) => {
+const buildControls = ({ ingredients, price, addControl, removeControl }) => {
   return (
     <div className={styles.buildControls}>
+      <p>
+        Current Price: <strong>{price.toFixed(2)}</strong>
+      </p>
+
       {itemOptions.map((item) => (
         <ControlOptions
           key={item.label}

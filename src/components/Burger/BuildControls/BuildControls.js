@@ -9,11 +9,11 @@ const itemOptions = [
   { label: 'Meat', type: 'meat' },
 ];
 
-const buildControls = (props) => {
+const buildControls = ({ addControl }) => {
   return (
     <div className={styles.buildControls}>
       {itemOptions.map((item) => (
-        <ControlOptions key={item.label} label={item.label} />
+        <ControlOptions key={item.label} label={item.label} addItem={() => addControl(item.type)} />
       ))}
     </div>
   );

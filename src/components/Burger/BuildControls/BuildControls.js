@@ -9,11 +9,17 @@ const itemOptions = [
   { label: 'Meat', type: 'meat' },
 ];
 
-const buildControls = ({ addControl }) => {
+const buildControls = ({ ingredients, addControl, removeControl }) => {
   return (
     <div className={styles.buildControls}>
       {itemOptions.map((item) => (
-        <ControlOptions key={item.label} label={item.label} addItem={() => addControl(item.type)} />
+        <ControlOptions
+          key={item.label}
+          label={item.label}
+          addItem={() => addControl(item.type)}
+          removeItem={() => removeControl(item.type)}
+          isDisabled={!ingredients[item.type]}
+        />
       ))}
     </div>
   );

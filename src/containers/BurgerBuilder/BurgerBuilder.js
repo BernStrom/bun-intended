@@ -75,12 +75,17 @@ export default class BurgerBuilder extends Component {
 
   purchaseHandler = () => this.setState({ purchasingMode: true });
   purchaseCancelHandler = () => this.setState({ purchasingMode: false });
+  purchaseContinueHandler = () => alert('Order checkout page coming soon!');
 
   render() {
     return (
       <>
         <Modal isDisplay={this.state.purchasingMode} isClosed={this.purchaseCancelHandler}>
-          <OrderSummary ingredients={this.state.ingredients} />
+          <OrderSummary
+            ingredients={this.state.ingredients}
+            cancelCheckout={this.purchaseCancelHandler}
+            proceedCheckout={this.purchaseContinueHandler}
+          />
         </Modal>
         <Burger ingredients={this.state.ingredients} />
         <BuildControls

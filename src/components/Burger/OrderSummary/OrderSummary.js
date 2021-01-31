@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from '../../UI/Button/Button';
 
-const orderSummary = ({ ingredients, cancelCheckout, proceedCheckout }) => {
+const orderSummary = ({ ingredients, price, cancelCheckout, proceedCheckout }) => {
   const ingredientsSummary = Object.keys(ingredients).map((name) => (
     <li key={name}>
       <span style={{ textTransform: 'capitalize' }}>{name}</span>: {ingredients[name]}
@@ -15,6 +15,9 @@ const orderSummary = ({ ingredients, cancelCheckout, proceedCheckout }) => {
         <em>With these oh-so-satisfying ingredients:</em>
       </p>
       <ul>{ingredientsSummary}</ul>
+      <p>
+        <strong>Total Price: {price.toFixed(2)}</strong>
+      </p>
       <p>Continue to checkout?</p>
       <Button btnType="danger" checkoutOption={cancelCheckout}>
         CANCEL

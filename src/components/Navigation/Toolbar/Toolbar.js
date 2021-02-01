@@ -6,7 +6,9 @@ import styles from './Toolbar.module.css';
 const toolbar = (props) => (
   <header className={styles.toolbar}>
     <div>MENU</div>
-    <Logo />
+    <div className={styles.logo}>
+      <Logo />
+    </div>
     <nav>
       <NavigationItems />
     </nav>

@@ -4,7 +4,7 @@ import styles from './Modal.module.css';
 
 const modal = ({ children, isDisplay, isClosed }) => (
   <>
-    <Backdrop displaySummary={isDisplay} closeSummary={isClosed} />
+    <Backdrop open={isDisplay} close={isClosed} />
     <div
       className={styles.modal}
       style={{

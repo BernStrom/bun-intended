@@ -10,7 +10,7 @@ const burger = ({ ingredients }) => {
     .reduce((array, element) => [...array, ...element], []);
 
   if (customIngredients.length === 0) {
-    customIngredients = <p>Got beef? Please start adding ingredients!</p>;
+    customIngredients = <p>Beef me up please!</p>;
   }
 
   return (

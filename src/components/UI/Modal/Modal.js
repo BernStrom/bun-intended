@@ -4,7 +4,7 @@ import styles from './Modal.module.css';
 
 export default class Modal extends Component {
   shouldComponentUpdate(nextProps, nextState) {
-    return nextProps.isDisplay !== this.props.isDisplay;
+    return nextProps.isDisplay !== this.props.isDisplay || nextProps.children !== this.props.children;
   }
 
   componentDidUpdate() {

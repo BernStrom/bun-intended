@@ -112,7 +112,7 @@ class BurgerBuilder extends Component {
 
     if (this.state.ingredients) {
       burger = (
-        <Spinner>
+        <>
           <Burger ingredients={this.state.ingredients} />
           <BuildControls
             ingredients={this.state.ingredients}
@@ -122,7 +122,7 @@ class BurgerBuilder extends Component {
             addControl={this.addIngredientHandler}
             removeControl={this.removeIngredientHandler}
           />
-        </Spinner>
+        </>
       );
 
       orderSummary = (

@@ -83,27 +83,32 @@ class BurgerBuilder extends Component {
   purchaseHandler = () => this.setState({ purchasingMode: true });
   purchaseCancelHandler = () => this.setState({ purchasingMode: false });
   purchaseContinueHandler = () => {
-    this.setState({ loading: true });
+    // this.setState({ loading: true });
 
-    const order = {
-      ingredients: this.state.ingredients,
-      price: this.state.totalPrice,
-      customer: {
-        name: 'Bern',
-        address: {
-          street: '4 Hampton Road',
-          zipCode: '97370',
-          country: 'Canada',
-        },
-        email: 'test@email.com',
-      },
-      deliveryMethod: 'fastest',
-    };
+    // const order = {
+    //   ingredients: this.state.ingredients,
+    //   price: this.state.totalPrice,
+    //   customer: {
+    //     name: 'Bern',
+    //     address: {
+    //       street: '4 Hampton Road',
+    //       zipCode: '97370',
+    //       country: 'Canada',
+    //     },
+    //     email: 'test@email.com',
+    //   },
+    //   deliveryMethod: 'fastest',
+    // };
 
-    axios
-      .post('/orders.json', order)
-      .then((response) => this.setState({ loading: false, purchasingMode: false }))
-      .catch((error) => this.setState({ loading: false, purchasingMode: false }));
+    // axios
+    //   .post('/orders.json', order)
+    //   .then((response) => this.setState({ loading: false, purchasingMode: false }))
+    //   .catch((error) => this.setState({ loading: false, purchasingMode: false }));
+    
+    this.props.history.push({
+      pathname: '/checkout',
+      search: new URLSearchParams(this.state.ingredients).toString()
+    });
   };
 
   render() {

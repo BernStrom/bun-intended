@@ -64,3 +64,8 @@
   background: #ffdf91;
   transition-delay: 0.35s;
 }
+
+.button:disabled {
+  color: #ccc;
+  cursor: not-allowed;
+}

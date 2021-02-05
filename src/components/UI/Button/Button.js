@@ -1,9 +1,13 @@
 import React from 'react';
 import styles from './Button.module.css';
 
-const button = ({ children, btnType, checkoutOption }) => (
-  <button className={[styles.button, styles[btnType]].join(' ')} onClick={checkoutOption}>
-    {children}
+const button = (props) => (
+  <button
+    className={[styles.button, styles[props.btnType]].join(' ')}
+    disabled={props.disabled}
+    onClick={props.checkoutOption}
+  >
+    {props.children}
   </button>
 );
 

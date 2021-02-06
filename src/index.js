@@ -5,11 +5,11 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
 import App from './App';
-import reducer from './store/reducer';
+import burgerBuilderReducer from './store/reducers/burgerBuilder';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
 
-const store = createStore(reducer);
+const store = createStore(burgerBuilderReducer);
 
 ReactDOM.render(
   <React.StrictMode>

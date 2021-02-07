@@ -1,23 +1,25 @@
 import React from 'react';
-import Ingredient from './Ingredient/Ingredient';
+import BurgerIngredient from './BurgerIngredient/BurgerIngredient';
 import styles from './Burger.module.css';
 
-const burger = ({ ingredients }) => {
-  let customIngredients = Object.keys(ingredients)
-    .map((name) =>
-      [...Array(ingredients[name])].map((_, index) => <Ingredient key={name + index} type={name} />)
+const burger = (props) => {
+  let transformedIngredients = Object.keys(props.ingredients)
+    .map((igKey) =>
+      [...Array(props.ingredients[igKey])].map((_, i) => (
+        <BurgerIngredient key={igKey + i} type={igKey} />
+      ))
     )
-    .reduce((array, element) => [...array, ...element], []);
+    .reduce((arr, el) => arr.concat(el), []);
 
-  if (customIngredients.length === 0) {
-    customIngredients = <p>Beef me up please!</p>;
+  if (transformedIngredients.length === 0) {
+    transformedIngredients = <p>Please start adding ingredients!</p>;
   }
 
   return (
     <div className={styles.burger}>
-      <Ingredient type="bread-top" />
-      {customIngredients}
-      <Ingredient type="bread-bottom" />
+      <BurgerIngredient type="bread-top" />
+      {transformedIngredients}
+      <BurgerIngredient type="bread-bottom" />
     </div>
   );
 };

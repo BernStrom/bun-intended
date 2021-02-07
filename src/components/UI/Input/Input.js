@@ -3,20 +3,13 @@ import styles from './Input.module.css';
 
 const input = (props) => {
   let inputElement = null;
-  let validationError = null;
   const inputClasses = [styles.inputElement];
 
   if (props.invalid && props.shouldValidate && props.touched) {
     inputClasses.push(styles.invalid);
   }
 
-  if (props.invalid && props.touched) {
-    validationError = (
-      <p className={styles.validationError}>Please enter a valid {props.valueType}!</p>
-    );
-  }
-
-  switch (props.inputtype) {
+  switch (props.elementType) {
     case 'input':
       inputElement = (
         <input
@@ -47,6 +40,7 @@ const input = (props) => {
           ))}
         </select>
       );
+      break;
     default:
       inputElement = (
         <input
@@ -62,7 +56,6 @@ const input = (props) => {
     <div className={styles.input}>
       <label className={styles.label}>{props.label}</label>
       {inputElement}
-      {validationError}
     </div>
   );
 };

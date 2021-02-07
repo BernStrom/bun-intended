@@ -6,7 +6,7 @@ import Spinner from '../../../components/UI/Spinner/Spinner';
 import Input from '../../../components/UI/Input/Input';
 import errorHandler from '../../../errorHandler';
 import * as actions from '../../../store/actions/index';
-import { updatedObject, checkValidity } from '../../../shared/utility';
+import { updateObject, checkValidity } from '../../../shared/utility';
 import styles from './ContactData.module.css';
 
 class ContactData extends Component {

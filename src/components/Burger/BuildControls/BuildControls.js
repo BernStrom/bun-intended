@@ -1,41 +1,32 @@
 import React from 'react';
-import ControlOptions from './ControlOptions/ControlOptions';
+import BuildControl from './BuildControl/BuildControl';
 import styles from './BuildControls.module.css';
 
-const itemOptions = [
+const controls = [
   { label: 'Salad', type: 'salad' },
   { label: 'Bacon', type: 'bacon' },
   { label: 'Cheese', type: 'cheese' },
   { label: 'Meat', type: 'meat' },
 ];
 
-const buildControls = ({
-  ingredients,
-  price,
-  purchasable,
-  submitOrder,
-  addControl,
-  removeControl,
-}) => {
-  return (
-    <div className={styles.buildControls}>
-      <p>
-        Current Price: <strong>{price.toFixed(2)}</strong>
-      </p>
-      {itemOptions.map((item) => (
-        <ControlOptions
-          key={item.label}
-          label={item.label}
-          addItem={() => addControl(item.type)}
-          removeItem={() => removeControl(item.type)}
-          isDisabled={!ingredients[item.type]}
-        />
-      ))}
-      <button className={styles.orderButton} disabled={!purchasable} onClick={submitOrder}>
-        ORDER NOW
-      </button>
-    </div>
-  );
-};
+const buildControls = (props) => (
+  <div className={styles.buildControls}>
+    <p>
+      Current Price: <strong>{props.price.toFixed(2)}</strong>
+    </p>
+    {controls.map((ctrl) => (
+      <BuildControl
+        key={ctrl.label}
+        label={ctrl.label}
+        added={() => props.ingredientAdded(ctrl.type)}
+        removed={() => props.ingredientRemoved(ctrl.type)}
+        disabled={props.disabled[ctrl.type]}
+      />
+    ))}
+    <button className={styles.orderButton} disabled={!props.purchasable} onClick={props.ordered}>
+      {props.isAuth ? 'ORDER NOW' : 'SIGN UP TO ORDER'}
+    </button>
+  </div>
+);
 
 export default buildControls;

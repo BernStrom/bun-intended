@@ -2,24 +2,24 @@ import React, { Component } from 'react';
 import Backdrop from '../Backdrop/Backdrop';
 import styles from './Modal.module.css';
 
-export default class Modal extends Component {
+class Modal extends Component {
   shouldComponentUpdate(nextProps, nextState) {
-    return nextProps.isDisplay !== this.props.isDisplay || nextProps.children !== this.props.children;
+    return nextProps.show !== this.props.show || nextProps.children !== this.props.children;
   }
 
-  componentDidUpdate() {
+  componentWillUpdate() {
     console.log('[Modal] WillUpdate');
   }
 
   render() {
     return (
       <>
-        <Backdrop open={this.props.isDisplay} close={this.props.isClosed} />
+        <Backdrop show={this.props.show} clicked={this.props.modalClosed} />
         <div
           className={styles.modal}
           style={{
-            transform: this.props.isDisplay ? 'translateY(0)' : 'translateY(-100vh)',
-            opacity: this.props.isDisplay ? '1' : '0',
+            transform: this.props.show ? 'translateY(0)' : 'translateY(-100vh)',
+            opacity: this.props.show ? '1' : '0',
           }}
         >
           {this.props.children}
@@ -28,3 +28,5 @@ export default class Modal extends Component {
     );
   }
 }
+
+export default Modal;

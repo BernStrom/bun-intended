@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import CheckoutSummary from '../../components/Order/CheckoutSummary/CheckoutSummary';
 import ContactData from './ContactData/ContactData';
 
-const checkout = (props) => {
+const Checkout = (props) => {
   const cancelCheckoutHandler = () => {
     props.history.goBack();
   };
@@ -41,4 +41,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(checkout);
+export default connect(mapStateToProps)(Checkout);

@@ -4,7 +4,7 @@ import NavigationItems from '../NavigationItems/NavigationItems';
 import Backdrop from '../../UI/Backdrop/Backdrop';
 import styles from './SideDrawer.module.css';
 
-const sideDrawer = (props) => {
+const SideDrawer = (props) => {
   let attachedClasses = [styles.sideDrawer, styles.close];
 
   if (props.open) {
@@ -26,4 +26,4 @@ const sideDrawer = (props) => {
   );
 };
 
-export default sideDrawer;
+export default SideDrawer;

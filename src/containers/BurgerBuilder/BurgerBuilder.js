@@ -9,14 +9,14 @@ import errorHandler from '../../errorHandler';
 import axios from '../../axios-db-instance';
 import * as actions from '../../store/actions/index';
 
-const burgerBuilder = (props) => {
+const BurgerBuilder = (props) => {
   const [purchasing, setPurchasing] = useState(false);
 
   const dispatch = useDispatch();
   const onIngredientAdded = (ingName) => dispatch(actions.addIngredient(ingName));
   const onIngredientRemoved = (ingName) => dispatch(actions.removeIngredient(ingName));
-  const onInitIngredients = () => useCallback(() => dispatch(actions.initIngredients()), [dispatch]);
-  const onInitPurchase = () => dispatch(actions.purchaseInit());
+  const onInitIngredients = useCallback(() => dispatch(actions.initIngredients()), [dispatch]);
+  const onInitPurchase = () => dispatch(() => actions.purchaseInit());
   const onSetAuthRedirectPath = (path) => dispatch(actions.setAuthRedirectPath(path));
 
   const ings = useSelector((state) => state.burgerBuilder.ingredients);
@@ -103,4 +103,4 @@ const burgerBuilder = (props) => {
   );
 };
 
-export default errorHandler(burgerBuilder, axios);
+export default errorHandler(BurgerBuilder, axios);

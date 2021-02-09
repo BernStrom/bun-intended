@@ -9,7 +9,7 @@ import * as actions from '../../../store/actions/index';
 import { updateObject, checkValidity } from '../../../shared/utility';
 import styles from './ContactData.module.css';
 
-const contactData = (props) => {
+const ContactData = (props) => {
   const [orderForm, setOrderForm] = useState({
     name: {
       elementType: 'input',
@@ -190,4 +190,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(errorHandler(contactData, axios));
+export default connect(mapStateToProps, mapDispatchToProps)(errorHandler(ContactData, axios));

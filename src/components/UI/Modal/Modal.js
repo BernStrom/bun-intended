@@ -2,7 +2,7 @@ import React from 'react';
 import Backdrop from '../Backdrop/Backdrop';
 import styles from './Modal.module.css';
 
-const modal = (props) => {
+const Modal = (props) => {
   return (
     <>
       <Backdrop show={props.show} clicked={props.modalClosed} />
@@ -20,7 +20,7 @@ const modal = (props) => {
 };
 
 export default React.memo(
-  modal,
+  Modal,
   (prevProps, nextProps) =>
     nextProps.show === prevProps.show && nextProps.children === prevProps.children
 );

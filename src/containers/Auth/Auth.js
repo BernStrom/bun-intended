@@ -8,7 +8,7 @@ import { updateObject, checkValidity } from '../../shared/utility';
 import * as actions from '../../store/actions/index';
 import styles from './Auth.module.css';
 
-const auth = (props) => {
+const Auth = (props) => {
   const [authForm, setAuthForm] = useState({
     email: {
       elementType: 'input',
@@ -112,10 +112,10 @@ const auth = (props) => {
       {errorMessage}
       <form onSubmit={submitHandler}>
         {form}
-        <Button btnType="Success">SUBMIT</Button>
+        <Button btnType="success">SUBMIT</Button>
       </form>
       <Button clicked={switchAuthModeHandler} btnType="danger">
-        SWITCH TO {isSignup ? 'SIGNIN' : 'SIGNUP'}
+        SWITCH TO {isSignUp ? 'SIGN IN' : 'SIGN UP'}
       </Button>
     </div>
   );
@@ -138,4 +138,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(auth);
+export default connect(mapStateToProps, mapDispatchToProps)(Auth);

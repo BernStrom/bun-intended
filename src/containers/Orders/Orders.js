@@ -6,7 +6,7 @@ import Spinner from '../../components/UI/Spinner/Spinner';
 import errorHandler from '../../errorHandler';
 import * as actions from '../../store/actions/index';
 
-const orders = (props) => {
+const Orders = (props) => {
   const { onFetchOrders } = props;
   useEffect(() => {
     onFetchOrders(props.token, props.userId);
@@ -37,4 +37,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(errorHandler(orders, axios));
+export default connect(mapStateToProps, mapDispatchToProps)(errorHandler(Orders, axios));

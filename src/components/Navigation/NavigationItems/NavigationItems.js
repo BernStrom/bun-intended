@@ -2,7 +2,7 @@ import React from 'react';
 import NavItem from './NavItem/NavItem';
 import styles from './NavigationItems.module.css';
 
-const navigationItems = (props) => (
+const NavigationItems = (props) => (
   <ul className={styles.navigationItems}>
     <NavItem link="/" exact>
       Burger Builder
@@ -16,4 +16,4 @@ const navigationItems = (props) => (
   </ul>
 );
 
-export default navigationItems;
+export default NavigationItems;
